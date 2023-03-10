@@ -3,7 +3,9 @@
   import Link from "../../components/Link.svelte";
 </script>
 
-<Breadcrumb aria-label="Menu" solid>
+<Breadcrumb aria-label="Menu"
+            class="p-4 bg-white md:flex md:p-6 dark:bg-gray-800 z-20 w-full rounded-none"
+            solid>
   <BreadcrumbItem href="/" home>EEN</BreadcrumbItem>
   <BreadcrumbItem href="/about">About</BreadcrumbItem>
 </Breadcrumb>
