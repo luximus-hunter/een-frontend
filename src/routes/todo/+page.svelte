@@ -12,6 +12,7 @@
     { done: false, task: "Send API data in body instead of url" },
     { done: true, task: "Put on GitHub" },
     { done: false, task: "Tauri app" },
+    { done: false, task: "Delete game from server when not in use" },
     { done: false, task: "Card scale based on width" },
     { done: false, task: "Fix wild card logic" },
     { done: false, task: "Code refactor" },
