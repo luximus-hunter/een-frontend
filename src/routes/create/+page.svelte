@@ -1,16 +1,26 @@
 <script lang="ts">
   import { Card, Input, Button, Heading, Radio, Breadcrumb, BreadcrumbItem, Spinner } from "flowbite-svelte";
-  import type { ActionData } from "./$types";
+  import type { ActionData, PageData } from "./$types";
   import Message from "../../components/Message.svelte";
+  import { goto } from "$app/navigation";
+  import { browser } from "$app/environment";
+
+  interface PD extends PageData {
+    game?: string;
+    player?: string;
+  }
 
   interface AD extends ActionData {
     success: boolean;
-    game?: string;
-    player?: string;
     message?: string;
   }
 
+  export let data: PD;
   export let form: AD | null;
+
+  if (browser && data?.game) {
+    goto(`/game/${data?.game}`);
+  }
 
   let players = 4;
   let loading = false;
