@@ -43,7 +43,10 @@
   let winner: IPlayer | null = null;
 
   if (browser) {
-    connection.start().catch((err) => console.error(err)).finally(() => {
+    connection.start().catch((err) => {
+      console.error(err)
+      showMessage("red", "Couldn't connect to WebSocket.");
+    }).finally(() => {
       connection.send("Join", JSON.stringify({ gameId, playerId }));
     });
   }
