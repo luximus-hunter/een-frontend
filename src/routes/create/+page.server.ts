@@ -21,7 +21,11 @@ export const actions = {
     try {
       const response = await fetch(
         `http://localhost:5000/games/create?password=${password}&maxPlayers=${players}&username=${username}`,
-        { method: "post" }
+        {
+          method: "post", mode: "no-cors", headers: {
+            "Access-Control-Allow-Origin": "*"
+          }
+        }
       );
 
       if (response.status === 400) {
