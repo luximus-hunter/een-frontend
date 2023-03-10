@@ -13,7 +13,7 @@
     <Heading tag="h2" class="text-center mb-2">About EEN&trade;</Heading>
     <P justify>EEN&trade; was made by Thomas Lipman as an assignment for Windesheim University of Applied Sciences. EEN&trade;
       is a straight-up ripoff of UNO&trade;, no need to hide that fact.</P>
-    <Button class="mt-3" outline href="/">
+    <Button class="mt-3" outline href="https://github.com/luximus-hunter/een-frontend">
       Client Source
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
            stroke="currentColor" class="w-5 h-5 ml-2">
@@ -21,7 +21,7 @@
               d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
       </svg>
     </Button>
-    <Button class="mt-3" outline href="/">
+    <Button class="mt-3" outline href="https://github.com/luximus-hunter/een-backend">
       Server Source
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
            stroke="currentColor" class="w-5 h-5 ml-2">
