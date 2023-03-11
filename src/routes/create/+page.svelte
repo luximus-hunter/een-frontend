@@ -38,9 +38,9 @@
 </Breadcrumb>
 
 
-<div class="grid grid-cols-3 gap-3 mt-3">
-  <div><!-- Placeholder --></div>
-  <Card class="my-3" size="none">
+<div class="grid md:grid-cols-3 grid-cols-1 md:gap-3 gap-0 mt-3">
+  <div class="hidden md:block"><!-- Placeholder --></div>
+  <Card class="mx-3" size="none">
     <Heading tag="h2" class="text-center mb-2">Create</Heading>
     <form on:submit={() => loading = true} method="post">
       <div class="mb-1">
@@ -95,5 +95,5 @@
       <Button class="w-full" outline href="/">Back</Button>
     </form>
   </Card>
-  <div><!-- Placeholder --></div>
+  <div class="hidden md:block"><!-- Placeholder --></div>
 </div>

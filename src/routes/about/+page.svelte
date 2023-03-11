@@ -10,8 +10,8 @@
   <BreadcrumbItem href="/about">About</BreadcrumbItem>
 </Breadcrumb>
 
-<div class="flex space-x-3 mt-3">
-  <Card>
+<div class="grid md:grid-cols-3 grid-cols-1 gap-3 m-3">
+  <Card size="none">
     <Heading tag="h2" class="text-center mb-2">About EEN&trade;</Heading>
     <P justify>EEN&trade; was made by Thomas Lipman as an assignment for Windesheim University of Applied Sciences. EEN&trade;
       is a straight-up ripoff of UNO&trade;, no need to hide that fact.</P>
@@ -33,7 +33,7 @@
     </Button>
     <Button class="mt-3" outline href="/">Back</Button>
   </Card>
-  <Card>
+  <Card size="none">
     <Heading tag="h2" class="text-center mb-2">About the Dev</Heading>
     <P justify>I'm a junior software developer with knowledge in web- and desktop development studying ICT at Windesheim
       University of Applied Sciences. Read more about me on my website.</P>
@@ -51,7 +51,7 @@
       Under Construction
     </Button>
   </Card>
-  <Card>
+  <Card size="none">
     <Heading tag="h2" class="text-center mb-2">Technologies used</Heading>
     <div class="flex space-x-3">
       <div class="flex-1">
@@ -110,6 +110,5 @@
         </List>
       </div>
     </div>
-
   </Card>
 </div>

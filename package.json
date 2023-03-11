@@ -35,10 +35,13 @@
     },
     "type": "module",
     "dependencies": {
+        "@fortawesome/free-brands-svg-icons": "^6.3.0",
+        "@fortawesome/free-solid-svg-icons": "^6.3.0",
         "@microsoft/signalr": "^7.0.3",
         "@popperjs/core": "^2.11.6",
         "classnames": "^2.3.2",
         "flowbite": "^1.6.3",
-        "flowbite-svelte": "^0.30.3"
+        "flowbite-svelte": "^0.30.3",
+        "svelte-fa": "^3.0.3"
     }
 }

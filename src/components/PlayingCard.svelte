@@ -1,7 +1,8 @@
 <script lang="ts">
   import type ICard from "../types/ICard";
-  import Icon from "./Icon.svelte";
   import { getColor, getValue } from "./playingCardFc";
+  import Fa from "svelte-fa";
+  import { faFlag, faForward, faRepeat, faStar } from "@fortawesome/free-solid-svg-icons";
 
   export let card: ICard | undefined;
   export let backText: string | undefined;
@@ -9,6 +10,7 @@
   export let move: boolean;
   export let onClick: (card: ICard) => void;
   export let onDraw: () => void;
+  export let right: boolean
 
   const color = getColor(card?.Color);
   const value = getValue(card?.Value);
@@ -32,19 +34,27 @@
 </script>
 
 <div
-  class={`card card-${card !== undefined ? color : "back"} ${playable ? "playable" : ""} ${move ? "move" : ""}`}
+  class={`card card-${card !== undefined ? color : "back"} ${playable ? "playable" : ""} ${move ? "move" : ""} ${right ? "ml-auto" : ""}`}
   on:click={playable && onCardClick}>
   {#if (card !== undefined)}
-    <span class={`indicator indicator-1 ${isIcon ? "icon" : ""}`}>
-      {#if (isIcon)}
-        <Icon name={display} size={15} color="#222222" />
+    <span class="indicator indicator-1">
+      {#if (card?.Value === 10)}
+        <Fa icon={faForward} class="mx-auto" />
+      {:else if (card?.Value === 11)}
+        <Fa icon={faRepeat} class="mx-auto" />
+      {:else if (card?.Value === 13)}
+        <Fa icon={faStar} class="mx-auto" />
       {:else}
         {display}
       {/if}
     </span>
-    <span class={`indicator indicator-2 ${isIcon ? "icon" : ""}`}>
-      {#if (isIcon)}
-        <Icon name={display} size={15} color="#222222" />
+    <span class="indicator indicator-2">
+      {#if (card?.Value === 10)}
+        <Fa icon={faForward} class="mx-auto" />
+      {:else if (card?.Value === 11)}
+        <Fa icon={faRepeat} class="mx-auto" />
+      {:else if (card?.Value === 13)}
+        <Fa icon={faStar} class="mx-auto" />
       {:else}
         {display}
       {/if}
@@ -58,8 +68,12 @@
         {:else}
           EEN
         {/if}
-      {:else if (isIcon)}
-        <Icon name={display} size={40} color="#222222" />
+      {:else if (card?.Value === 10)}
+        <Fa icon={faForward} />
+      {:else if (card?.Value === 11)}
+        <Fa icon={faRepeat} />
+      {:else if (card?.Value === 13)}
+        <Fa icon={faStar} />
       {:else}
         {display}
       {/if}
@@ -68,10 +82,6 @@
 </div>
 
 <style lang="scss">
-    $width: 100px;
-    $height: 150px;
-    $border: 5px;
-
     .center {
         position: absolute;
         top: 50%;
@@ -80,22 +90,42 @@
     }
 
     .card {
+        --width: 100px;
+        --border: 5px;
+
+        @media screen and (max-width: 950px) {
+            --width: 80px;
+            --border: 4px;
+        }
+
+        @media screen and (max-width: 750px) {
+            --width: 60px;
+            --border: 3px;
+        }
+
+        @media screen and (max-width: 550px) {
+            --width: 40px;
+            --border: 2px;
+        }
+
+        --height: calc(var(--width) * 1.5);
+
         user-select: none;
 
         position: relative;
-        width: $width;
-        height: $height;
+        width: var(--width);
+        height: var(--height);
 
-        border: $border solid black;
-        border-radius: calc($width / 5);
+        border: var(--border) solid black;
+        border-radius: calc(var(--width) / 5);
         overflow: hidden;
 
-        font-size: 40px;
+        font-size: calc(var(--width) / 2.5);
         color: #222222;
         font-weight: bold;
 
         transition: margin-right 100ms, transform 100ms;
-        margin-right: calc($width * -1 + $width / 3);
+        margin-right: calc(var(--width) * -1 + var(--width) / 3);
 
         &.playable {
             cursor: pointer;
@@ -115,8 +145,28 @@
             height: 25px;
             text-align: center;
 
-            &.icon {
-                padding: 5px;
+            @media screen and (max-width: 950px) {
+                width: 20px;
+                height: 20px;
+                font-size: 13px;
+                line-height: 13px;
+                padding: 3px 0;
+            }
+
+            @media screen and (max-width: 750px) {
+                width: 15px;
+                height: 15px;
+                font-size: 10px;
+                line-height: 10px;
+                padding: 2px 0;
+            }
+
+            @media screen and (max-width: 550px) {
+                width: 10px;
+                height: 10px;
+                font-size: 7px;
+                line-height: 7px;
+                padding: 1px 0;
             }
 
             &-1 {
@@ -133,9 +183,9 @@
         }
 
         .middle {
-            width: calc($width - 2 * $border);
-            height: $width;
-            border-radius: 50% calc($width / 10) 50% calc($width / 10);
+            width: calc(var(--width) - 2 * var(--border));
+            height: var(--width);
+            border-radius: 50% calc(var(--width) / 10) 50% calc(var(--width) / 10);
             background: #ffffff;
         }
 
@@ -170,7 +220,7 @@
 
         &.move {
             &:hover {
-                margin-right: calc($width * -1 / 6);
+                margin-right: calc(var(--width) * -1 / 6);
             }
         }
     }

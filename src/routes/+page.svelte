@@ -8,13 +8,13 @@
   <BreadcrumbItem href="/" home>EEN</BreadcrumbItem>
 </Breadcrumb>
 
-<div class="grid grid-cols-3 gap-3 mt-3">
-  <div><!-- Placeholder --></div>
+<div class="grid md:grid-cols-3 grid-cols-1 gap-3 m-3">
+  <div class="hidden md:block"><!-- Placeholder --></div>
   <Card size="none">
     <Heading tag="h1" class="mb-3 text-center">EEN</Heading>
     <Button class="mb-1" href="/join">Join Game</Button>
     <Button href="/create">Create Game</Button>
   </Card>
-  <div><!-- Placeholder --></div>
+  <div class="hidden md:block"><!-- Placeholder --></div>
 </div>
 

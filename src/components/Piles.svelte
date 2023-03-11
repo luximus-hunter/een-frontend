@@ -10,19 +10,19 @@
   export let drawBuffer: number;
 </script>
 
-<Card size="lg" class="grid grid-cols-2">
-  <div>
-    <Heading tag="h5">
+<Card size="none" class="grid grid-cols-2 gap-3 col-span-3">
+  <div class="">
+    <P weight="bold" class="md:text-xl text-md text-right" bold>
       Discard Pile
-    </Heading>
-    <P>({discardPile.length} cards)</P>
-    <PlayingCard card={discardPile[0]} />
+    </P>
+    <P class="md:text-md text-sm text-right mb-3">{discardPile.length} card{discardPile.length > 1 ? "s" : ""}</P>
+    <PlayingCard right card={discardPile[0]} />
   </div>
   <div>
-    <Heading tag="h5">
+    <P weight="bold" class="md:text-xl text-md" bold>
       Draw Pile
-    </Heading>
-    <P>({drawPile.length} cards)</P>
+    </P>
+    <P class="md:text-md text-sm mb-3">{drawPile.length} card{drawPile.length > 1 ? "s" : ""}</P>
     {#if (drawBuffer > 0)}
       <PlayingCard playable={enableDraw} onDraw={onDrawClick} backText={"+" + drawBuffer} />
     {:else}

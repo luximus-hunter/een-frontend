@@ -34,13 +34,30 @@
 <style lang="scss">
     .cards {
         display: flex;
+        justify-content: center;
 
         .empty {
+            --width: 100px;
+
+            @media screen and (max-width: 950px) {
+                --width: 80px;
+            }
+
+            @media screen and (max-width: 750px) {
+                --width: 60px;
+            }
+
+            @media screen and (max-width: 550px) {
+                --width: 40px;
+            }
+
+            --height: calc(var(--width) * 1.5);
+
             color: #cccccc;
-            font-size: 40px;
+            font-size: calc(var(--width) / 2.5);
             font-weight: bold;
-            height: 150px;
-            line-height: 150px;
+            height: var(--height);
+            line-height: var(--height);
             text-align: center;
         }
     }

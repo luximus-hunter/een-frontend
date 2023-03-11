@@ -4,14 +4,15 @@
   import { browser } from "$app/environment";
 
   // Library stuff
-  import * as signalR from "@microsoft/signalr";
   import { Breadcrumb, BreadcrumbItem, Button, Card, Avatar, Badge, Heading, Modal, Spinner } from "flowbite-svelte";
+  import * as signalR from "@microsoft/signalr";
 
   // Own types
   import type ISocketResponse from "../../../types/ISocketResponse";
   import type IMoveResponse from "../../../types/IMoveResponse";
   import type IJoinResponse from "../../../types/IJoinResponse";
   import type IMoveRequest from "../../../types/IMoveRequest";
+  import type IWinResponse from "../../../types/IWinResponse";
   import type IPlayer from "../../../types/IPlayer";
   import type IGame from "../../../types/IGame";
   import type ICard from "../../../types/ICard";
@@ -20,7 +21,6 @@
   import Player from "../../../components/Player.svelte";
   import Piles from "../../../components/Piles.svelte";
   import Message from "../../../components/Message.svelte";
-  import Icon from "../../../components/Icon.svelte";
 
   interface PD extends PageData {
     gameId: string,
@@ -44,7 +44,7 @@
 
   if (browser) {
     connection.start().catch((err) => {
-      console.error(err)
+      console.error(err);
       showMessage("red", "Couldn't connect to WebSocket.");
     }).finally(() => {
       connection.send("Join", JSON.stringify({ gameId, playerId }));
@@ -57,7 +57,7 @@
     const player = response.Players[response.Players.length - 1];
 
     if (player.Id !== playerId) {
-      showMessage("green", `${player.Username} joined!`);
+      showMessage("green", `${player.Username} joined the game!`);
     }
   });
 
@@ -69,7 +69,7 @@
 
   connection.on("Start", (json: string) => {
     const response: IMoveResponse = JSON.parse(json);
-    showMessage("green", "Game started!");
+    showMessage("green", "Game has started!");
     game = response.Game;
     setOpponents();
     winModalShow = false;
@@ -84,12 +84,9 @@
     }
   });
 
-  connection.on("Win", (_: string) => {
-    game?.Players.map(player => {
-      if (player.Cards.length < 1) {
-        winner = player;
-      }
-    });
+  connection.on("Win", (json: string) => {
+    const response: IWinResponse = JSON.parse(json);
+    winner = response.Player;
     winModalShow = true;
   });
 
@@ -163,16 +160,11 @@
 
 {#if (game?.Running)}
   <Modal bind:open={wildModalShow} size="md" title="Choose color">
-    <div class="text-center">
-      <div class="mx-auto mb-4 w-[50px]">
-        <Icon name="wild" size="50" color="#222222" />
-      </div>
-      <div class="grid grid-cols-2 gap-3">
-        <Button on:click={() => onWildChoose(0)} color="red">Red</Button>
-        <Button on:click={() => onWildChoose(1)} color="blue">Blue</Button>
-        <Button on:click={() => onWildChoose(2)} color="green">Green</Button>
-        <Button on:click={() => onWildChoose(3)} color="yellow">Yellow</Button>
-      </div>
+    <div class="grid grid-cols-2 gap-3">
+      <Button on:click={() => onWildChoose(0)} color="red">Red</Button>
+      <Button on:click={() => onWildChoose(1)} color="blue">Blue</Button>
+      <Button on:click={() => onWildChoose(2)} color="green">Green</Button>
+      <Button on:click={() => onWildChoose(3)} color="yellow">Yellow</Button>
     </div>
   </Modal>
 
@@ -188,28 +180,24 @@
   </Modal>
 
   {#key game}
-    <div class="grid grid-cols-3 gap-3 mt-3 mx-3">
+    <div class="grid grid-cols-3 gap-3 m-3">
       {#each Array(3) as _, index}
         {#if (opponents[index])}
           <Player player={opponents[index]} me={playerId} onTurn={game.OnTurn} onCardClick={onCardClick} />
         {:else }
-          <div><!-- Placeholder --></div>
+          <Player />
         {/if}
       {/each}
-      <div><!-- Placeholder --></div>
       <Piles onDrawClick={onCardClick} discardPile={game.DiscardPile} drawPile={game.DrawPile}
              enableDraw={game.OnTurn === playerId} drawBuffer={game.DrawBuffer} />
-      <div><!-- Placeholder --></div>
-      <div><!-- Placeholder --></div>
       <Player player={game.Players.find(p => p.Id === playerId)} me={playerId} onTurn={game.OnTurn}
               onCardClick={onCardClick} />
-      <div><!-- Placeholder --></div>
     </div>
   {/key}
 {:else}
-  <div class="grid grid-cols-3 gap-3 mt-3">
-    <div><!-- Placeholder --></div>
-    <Card size="none">
+  <div class="grid md:grid-cols-3 grid-cols-1 md:gap-3 gap-0 mt-3">
+    <div class="hidden md:block"><!-- Placeholder --></div>
+    <Card size="none" class="mx-3">
       <Heading tag="h2" class="mb-3">Players</Heading>
       {#if (players !== null)}
         {#key players}
@@ -232,6 +220,6 @@
       <Button class="mb-1" on:click={btnStartClick}>Start</Button>
       <Button outline on:click={btnCopyClick}>Copy Code</Button>
     </Card>
-    <div><!-- Placeholder --></div>
+    <div class="hidden md:block"><!-- Placeholder --></div>
   </div>
 {/if}
