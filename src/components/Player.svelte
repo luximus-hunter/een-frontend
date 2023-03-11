@@ -37,7 +37,7 @@
 {:else}
   <Card size="none" class="col-span-1 hidden md:block">
     <div class="flex mb-3">
-      <Avatar class="mr-3" src="https://api.dicebear.com/5.x/identicon/svg?row1=xooox&row2=oxoxo&row3=ooxoo&row4=oxoxo&row5=xooox&rowColor=e53935" rounded />
+      <Avatar class="mr-3" src="https://api.dicebear.com/5.x/identicon/svg?row1=xooox&row2=oxoxo&row3=ooxoo&row4=oxoxo&row5=xooox&rowColor=e53935&backgroundColor=ffffff" rounded />
       <Heading tag="h3" class="text-gray-700">
         [empty slot]
       </Heading>
