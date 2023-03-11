@@ -1,7 +1,6 @@
 <script lang="ts">
   import "../app.postcss";
   import { Footer, FooterCopyright, FooterLinkGroup, FooterLink, Button } from "flowbite-svelte";
-  import Link from "../components/Link.svelte";
   // import Icon from "../components/Icon.svelte";
   // import { browser } from "$app/environment";
 
