@@ -80,6 +80,14 @@
           <Li>
             <Link href="https://www.dicebear.com/">DiceBear</Link>
           </Li>
+          <Li>
+            <Link href="https://fontawesome.com/">FontAwesome</Link>
+          </Li>
+          <List tag="ol" class="pl-5 mt-2 space-y-1">
+            <Li>
+              <Link href="https://cweili.github.io/svelte-fa/">Svelte-Fa</Link>
+            </Li>
+          </List>
         </List>
       </div>
       <div class="flex-1">
@@ -106,6 +114,12 @@
           </Li>
           <Li>
             <Link href="https://swagger.io/tools/swagger-ui/">SwaggerUI</Link>
+          </Li>
+          <Li>
+            <Link href="https://www.newtonsoft.com/">Newtonsoft</Link>
+          </Li>
+          <Li>
+            <Link href="https://www.dicebear.com/">DiceBear</Link>
           </Li>
         </List>
       </div>
