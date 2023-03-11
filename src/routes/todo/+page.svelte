@@ -20,6 +20,7 @@
     { done: false, task: "Join route with game ID" },
     { done: true, task: "Somewhat mobile responsive" },
     { done: false, task: "Dark mode" },
+    { done: true, task: "Favicon" },
     { done: false, task: "Code refactor" },
     { done: false, task: "Svelte warnings for unset properties" },
     { done: false, task: "Make Docker files stuff" },
