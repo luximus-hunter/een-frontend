@@ -40,7 +40,7 @@
 
 <div class="grid md:grid-cols-3 grid-cols-1 gap-3 m-3">
   <div class="hidden md:block"><!-- Placeholder --></div>
-  <Card class="mt-3">
+  <Card size="none">
     <Heading tag="h2" class="text-center">TODO's</Heading>
     <Listgroup items={todos} let:item class="my-3">
       <Checkbox disabled checked={item.done}>{item.task}</Checkbox>

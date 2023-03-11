@@ -12,7 +12,7 @@
 
 <div class="grid md:grid-cols-3 grid-cols-1 gap-3 m-3">
   <div class="hidden md:block"><!-- Placeholder --></div>
-  <Card class="mb-3">
+  <Card size="none">
     <Heading tag="h2" class="text-center mb-2">{$page.status}</Heading>
     <Heading tag="h3" class="text-center mb-2">{$page.error.message}</Heading>
     <Button class="w-full" href="/">Back to Home</Button>
