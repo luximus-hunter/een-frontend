@@ -29,10 +29,12 @@
 		{ done: true, task: 'Somewhat mobile responsive' },
 		{ done: true, task: 'Dark mode' },
 		{ done: false, task: 'Fix dark mode colors' },
+		{ done: false, task: 'Un-hardcode api url' },
 		{ done: true, task: 'Favicon' },
 		{ done: false, task: 'Code refactor' },
 		{ done: false, task: 'Svelte warnings for unset properties' },
-		{ done: false, task: 'Make Docker files stuff' },
+		{ done: true, task: 'Dockerize client' },
+		{ done: false, task: 'Dockerize server' },
 		{ done: false, task: 'Put on Windesheim servers' },
 		{ done: false, task: 'Tauri app' },
 		{ done: false, task: 'Play test!' }
