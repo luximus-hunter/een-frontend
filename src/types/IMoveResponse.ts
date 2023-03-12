@@ -1,8 +1,8 @@
-import type ISocketResponse from "./ISocketResponse";
-import type IGame from "./IGame";
+import type ISocketResponse from './ISocketResponse';
+import type IGame from './IGame';
 
 interface IMoveResponse extends ISocketResponse {
-  Game: IGame;
+	Game: IGame;
 }
 
 export default IMoveResponse;

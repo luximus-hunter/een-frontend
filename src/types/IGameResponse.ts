@@ -1,5 +1,5 @@
-import type IPlayerResponse from "./IPlayerResponse";
-import type ICardResponse from "./ICardResponse";
+import type IPlayerResponse from './IPlayerResponse';
+import type ICardResponse from './ICardResponse';
 
 interface IGameResponse {
 	running: boolean;

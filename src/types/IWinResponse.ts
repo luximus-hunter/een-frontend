@@ -1,8 +1,8 @@
-import type ISocketResponse from "./ISocketResponse";
-import type IPlayer from "./IPlayer";
+import type ISocketResponse from './ISocketResponse';
+import type IPlayer from './IPlayer';
 
 interface IWinResponse extends ISocketResponse {
-  Player: IPlayer;
+	Player: IPlayer;
 }
 
 export default IWinResponse;
