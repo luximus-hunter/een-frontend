@@ -18,7 +18,7 @@ COPY . .
 ENV VITE_API=http://een.luximus.eu:5000
 
 # build the application
-RUN npm run build
+RUN node -r dotenv/config build
 
 ### Serve Step
 # pull the Node.js Docker image
