@@ -21,7 +21,7 @@ export const actions = {
 
 		try {
 			const response = await fetch(
-				`http://localhost:5000/games/join?gameId=${code}&password=${password}&username=${username}`,
+				`${import.meta.env.VITE_API}/games/join?gameId=${code}&password=${password}&username=${username}`,
 				{
 					method: 'post',
 					mode: 'no-cors',

@@ -41,7 +41,7 @@
 
 	let { gameId, playerId } = data || null;
 	let connection = new signalR.HubConnectionBuilder()
-		.withUrl('http://localhost:5000/games')
+		.withUrl(`${import.meta.env.VITE_API}/games`)
 		.build();
 
 	let game: IGame | null = null;
