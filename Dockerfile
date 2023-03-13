@@ -18,7 +18,7 @@ COPY . .
 ENV VITE_API=http://een.luximus.eu:5000
 
 # build the application
-RUN node build
+RUN npm run build
 
 ### Serve Step
 # pull the Node.js Docker image
@@ -34,6 +34,9 @@ COPY --from=builder /usr/src/app/node_modules ./node_modules
 
 # our app is running on port 3000 within the container, so need to expose it
 EXPOSE 3000
+
+# set env
+ENV VITE_API=http://een.luximus.eu:5000
 
 # the command that starts our app
 CMD ["node","index.js"]
