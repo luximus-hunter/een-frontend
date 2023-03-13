@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 COPY . ./
 
 # run npm install in our local machine
-RUN npm ci
+RUN npm i
 
 # copy the generated modules and all other files to the container
 COPY . .
