@@ -1,8 +1,11 @@
 <script lang="ts">
   import "../app.postcss";
   import { Footer, FooterCopyright, FooterLinkGroup, FooterLink } from "flowbite-svelte";
+  import { browser } from "$app/environment";
 
-  console.log(import.meta.env.VITE_API);
+  if(browser){
+    console.log(import.meta.env.VITE_API);
+  }
 </script>
 
 <div class="flex flex-col min-h-screen dark:bg-gray-900">
