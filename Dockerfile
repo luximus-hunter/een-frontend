@@ -14,8 +14,11 @@ RUN npm i
 # copy the generated modules and all other files to the container
 COPY . .
 
+# set env
+ENV VITE_API=http://een.luximus.eu:5000
+
 # build the application
-RUN node -r dotenv/config build
+RUN node build
 
 ### Serve Step
 # pull the Node.js Docker image
