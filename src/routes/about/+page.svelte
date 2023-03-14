@@ -19,7 +19,7 @@
 
 <Breadcrumb
 	aria-label="Menu"
-	class="p-4 bg-white md:flex md:p-6 dark:bg-gray-800 z-20 w-full rounded-none"
+	class="p-4 bg-white md:flex md:p-6 dark:bg-gray-800 z-20 w-full rounded-none border-none"
 	solid
 >
 	<BreadcrumbItem href="/" home>EEN</BreadcrumbItem>
