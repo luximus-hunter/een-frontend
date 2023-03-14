@@ -55,7 +55,7 @@ export const actions = {
 				return { success: false, message: response.statusText };
 			}
 		} catch ({ message }) {
-			console.error(message)
+			console.log(message)
 			return { success: false, message: 'The server is down.' };
 		}
 	}
