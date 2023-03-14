@@ -29,7 +29,7 @@
 		{ done: true, task: 'Put on Windesheim servers' },
 		{ done: true, task: 'Un-hardcode api url' },
 		{ done: true, task: 'Page titles' },
-		{ done: false, task: 'Rules page' },
+		{ done: true, task: 'Rules page' },
 		{ done: false, task: 'WebSocket player validation with Dictionary & connection id' },
 		{ done: false, task: 'Send API data in body instead of url' },
 		{ done: false, task: 'Remove game from server when not in use' },
