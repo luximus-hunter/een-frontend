@@ -19,7 +19,8 @@
 	<Card size="none">
 		<Heading tag="h1" class="mb-3 text-center">EEN</Heading>
 		<Button class="mb-1" href="/join">Join Game</Button>
-		<Button href="/create">Create Game</Button>
+		<Button class="mb-3" href="/create">Create Game</Button>
+		<Button href="/rules" outline>Rules</Button>
 	</Card>
 	<div class="hidden md:block"><!-- Placeholder --></div>
 </div>
