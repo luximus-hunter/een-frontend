@@ -36,7 +36,7 @@ COPY --from=builder /usr/src/app/node_modules ./node_modules
 EXPOSE 3000
 
 # set env
-ENV VITE_API=http://een.luximus.eu:5000
+ENV VITE_API=http://localhost:5000
 
 # the command that starts our app
 CMD ["node","index.js"]
