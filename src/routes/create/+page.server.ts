@@ -32,8 +32,7 @@ export const actions = {
 			);
 
 			if (response.status === 400) {
-				console.log(response)
-				return { success: false, message: response.statusText };
+				return { success: false, message: 'Invalid request send to server.' };
 			}
 
 			try {
@@ -55,7 +54,8 @@ export const actions = {
 			} catch (e) {
 				return { success: false, message: response.statusText };
 			}
-		} catch (e) {
+		} catch ({ message }) {
+			console.error(message)
 			return { success: false, message: 'The server is down.' };
 		}
 	}
