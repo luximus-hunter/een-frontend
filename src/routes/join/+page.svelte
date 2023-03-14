@@ -35,6 +35,10 @@
 	let loading = false;
 </script>
 
+<svelte:head>
+	<title>EEN - Join</title>
+</svelte:head>
+
 {#if form?.success === false}
 	<Message message={form?.message} color="red" />
 {/if}

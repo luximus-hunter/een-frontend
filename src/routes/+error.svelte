@@ -3,6 +3,10 @@
 	import { Button, Breadcrumb, BreadcrumbItem, Card, Heading } from 'flowbite-svelte';
 </script>
 
+<svelte:head>
+	<title>EEN - Error</title>
+</svelte:head>
+
 <Breadcrumb
 	aria-label="Menu"
 	class="p-4 bg-white md:flex md:p-6 dark:bg-gray-800 z-20 w-full rounded-none"
