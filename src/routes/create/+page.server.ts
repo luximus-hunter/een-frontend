@@ -32,7 +32,8 @@ export const actions = {
 			);
 
 			if (response.status === 400) {
-				return { success: false, message: 'Invalid request send to server.' };
+				console.log(response)
+				return { success: false, message: response.statusText };
 			}
 
 			try {
