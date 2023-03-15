@@ -19,17 +19,6 @@ export const actions = {
     const players = form.get("players");
     const username = form.get("username");
 
-    fetch(
-      `${import.meta.env.VITE_API}/games/create?password=${password}&maxPlayers=${players}&username=${username}`,
-      {
-        method: "post",
-        mode: "no-cors",
-        headers: {
-          "Access-Control-Allow-Origin": "*"
-        }
-      }
-    ).catch(e => console.log(e));
-
     try {
       const response = await fetch(
         `${import.meta.env.VITE_API}/games/create?password=${password}&maxPlayers=${players}&username=${username}`,
