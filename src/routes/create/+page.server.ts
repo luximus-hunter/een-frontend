@@ -26,7 +26,7 @@ export const actions = {
           method: "post",
           mode: "no-cors",
           headers: {
-            "Access-Control-Allow-Origin": "*"
+            "Access-Control-Allow-Origin": "0.0.0.0:5000"
           }
         }
       );
