@@ -1,5 +1,7 @@
 <script lang="ts">
   import { Card, Button, Heading, Breadcrumb, BreadcrumbItem, List, Li } from "flowbite-svelte";
+  import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+  import Fa from "svelte-fa";
 </script>
 
 <svelte:head>
@@ -28,7 +30,10 @@
       <Li>After a +4, the player who's turn it is gets to choose the next color.</Li>
       <Li>The first person to lose all their cards wins</Li>
     </List>
-    <Button href="/" outline>Back</Button>
+    <Button href="/" outline>
+      <Fa icon={faChevronLeft} class="mr-3" />
+      Back
+    </Button>
   </Card>
   <div class="hidden md:block"><!-- Placeholder --></div>
 </div>

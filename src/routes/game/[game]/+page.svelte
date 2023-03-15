@@ -31,6 +31,8 @@
 	import Player from '../../../components/Player.svelte';
 	import Piles from '../../../components/Piles.svelte';
 	import Message from '../../../components/Message.svelte';
+	import { faCopy, faPlay } from "@fortawesome/free-solid-svg-icons";
+	import Fa from "svelte-fa";
 
 	interface PD extends PageData {
 		gameId: string;
@@ -252,8 +254,8 @@
 			{:else}
 				<Spinner class="mb-3 mx-auto" size={9} />
 			{/if}
-			<Button class="mb-1" on:click={btnStartClick}>Start</Button>
-			<Button outline on:click={btnCopyClick}>Copy Code</Button>
+			<Button class="mb-1" on:click={btnStartClick}>Start<Fa icon={faPlay} class="ml-3" /></Button>
+			<Button outline on:click={btnCopyClick}>Copy Code<Fa icon={faCopy} class="ml-3" /></Button>
 		</Card>
 		<div class="hidden md:block"><!-- Placeholder --></div>
 	</div>

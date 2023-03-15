@@ -2,6 +2,8 @@
   import "../app.postcss";
   import { Footer, FooterCopyright, FooterLinkGroup, FooterLink } from "flowbite-svelte";
   import { browser } from "$app/environment";
+  import { faInfo, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+  import Fa from "svelte-fa";
 
   if (browser) {
     console.log(import.meta.env.VITE_API);
@@ -41,7 +43,7 @@
     <FooterLinkGroup
       ulClass="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0"
     >
-      <FooterLink href="/about">About</FooterLink>
+      <FooterLink href="/about">About<Fa icon={faInfoCircle} class="ml-3 inline" /></FooterLink>
     </FooterLinkGroup>
   </Footer>
 </div>

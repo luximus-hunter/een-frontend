@@ -8,6 +8,8 @@
     Checkbox,
     Listgroup
   } from "flowbite-svelte";
+  import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+  import Fa from "svelte-fa";
 
   const todos: { done: boolean; task: string }[] = [
     { done: true, task: "In-game error message not showing" },
@@ -34,10 +36,11 @@
     { done: true, task: "Remove game from server when not in use" },
     { done: true, task: "Fix dark mode colors" },
     { done: true, task: "Code refactor" },
+    { done: true, task: "More icons" },
+    { done: false, task: "Tauri app" },
     { done: false, task: "TO & FO" },
     { done: false, task: "Fix docker for backend" },
     { done: false, task: "Svelte warnings for unset properties" },
-    { done: false, task: "Tauri app" },
     { done: false, task: "Play test!" }
   ];
 </script>
@@ -62,7 +65,10 @@
     <Listgroup items={todos} let:item class="my-3">
       <Checkbox disabled checked={item.done}>{item.task}</Checkbox>
     </Listgroup>
-    <Button href="/">Back</Button>
+    <Button href="/">
+      <Fa icon={faChevronLeft} class="mr-3" />
+      Back
+    </Button>
   </Card>
   <div class="hidden md:block"><!-- Placeholder --></div>
 </div>

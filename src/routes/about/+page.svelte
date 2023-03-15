@@ -10,7 +10,8 @@
     List,
     Li
   } from "flowbite-svelte";
-  import Link from "../../components/Link.svelte";
+  import { faChevronLeft, faLink } from "@fortawesome/free-solid-svg-icons";
+  import Fa from "svelte-fa";
 </script>
 
 <svelte:head>
@@ -34,7 +35,10 @@
       Applied Sciences. EEN&trade; is a straight-up ripoff of UNO&trade;, no need to hide that
       fact.</P
     >
-    <Button class="mt-3" outline href="/">Back</Button>
+    <Button class="mt-3" outline href="/">
+      <Fa icon={faChevronLeft} class="mr-3" />
+      Back
+    </Button>
   </Card>
   <Card size="none">
     <Heading tag="h2" class="text-center mb-2">About the Dev</Heading>
@@ -46,20 +50,7 @@
 			<Span class="line-through mr-3">
 				<span class="inline-flex items-center">
 					Website
-					<svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-5 h-5 ml-2"
-          >
-						<path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-            />
-					</svg>
+          <Fa icon={faLink} class="ml-3" />
 				</span>
 			</Span>
       Under Construction
@@ -69,37 +60,11 @@
     <Heading tag="h2" class="text-center mb-2">Source Code</Heading>
     <Button class="mt-3" outline href="https://github.com/luximus-hunter/een-frontend">
       Client Source
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        class="w-5 h-5 ml-2"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-        />
-      </svg>
+      <Fa icon={faLink} class="ml-3" />
     </Button>
     <Button class="mt-3" outline href="https://github.com/luximus-hunter/een-backend">
       Server Source
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        class="w-5 h-5 ml-2"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-        />
-      </svg>
+      <Fa icon={faLink} class="ml-3" />
     </Button>
   </Card>
   <Card size="none">
