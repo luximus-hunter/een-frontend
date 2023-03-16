@@ -37,9 +37,9 @@
     { done: true, task: "Fix dark mode colors" },
     { done: true, task: "Code refactor" },
     { done: true, task: "More icons" },
-    { done: false, task: "Tauri app" },
     { done: false, task: "TO & FO" },
     { done: false, task: "Fix docker for backend" },
+    { done: false, task: "CI/CD" },
     { done: false, task: "Svelte warnings for unset properties" },
     { done: false, task: "Play test!" }
   ];
