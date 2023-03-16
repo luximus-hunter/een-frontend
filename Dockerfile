@@ -15,7 +15,7 @@ RUN npm i
 COPY . .
 
 # set env
-ENV VITE_API=https://uno-backend:5000
+ENV VITE_API=https://uno-backend:5001
 
 # build the application
 RUN npm run build
