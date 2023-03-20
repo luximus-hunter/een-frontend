@@ -14,6 +14,7 @@
   solid
 >
   <BreadcrumbItem href="/" home>EEN</BreadcrumbItem>
+  <BreadcrumbItem href="/">Home</BreadcrumbItem>
 </Breadcrumb>
 
 <div class="grid md:grid-cols-3 grid-cols-1 gap-3 m-3">
