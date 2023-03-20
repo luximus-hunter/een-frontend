@@ -43,6 +43,7 @@
 		"dotenv": "^16.0.3",
 		"flowbite": "^1.6.3",
 		"flowbite-svelte": "^0.30.3",
+		"jose": "^4.13.1",
 		"svelte-fa": "^3.0.3"
 	}
 }

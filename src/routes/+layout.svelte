@@ -2,12 +2,19 @@
   import "../app.postcss";
   import { Footer, FooterCopyright, FooterLinkGroup, FooterLink } from "flowbite-svelte";
   import { browser } from "$app/environment";
-  import { faInfo, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+  import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
   import Fa from "svelte-fa";
+  import type { LayoutData } from "./$types";
+  import type IUserResponse from "../types/IUserResponse";
+
+  interface LD extends LayoutData {
+    token?: string;
+    user?: IUserResponse;
+  }
+
+  export let data: LD;
 
   if (browser) {
-    console.log(import.meta.env.VITE_API);
-
     console.error(
       `
     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣶⣿⣿⣷⣶⣄
@@ -30,6 +37,9 @@
             Why are you here?
       `
     );
+
+
+    console.log(data);
   }
 </script>
 
@@ -43,7 +53,15 @@
     <FooterLinkGroup
       ulClass="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0"
     >
-      <FooterLink href="/about">About<Fa icon={faInfoCircle} class="ml-3 inline" /></FooterLink>
+      {#if (data.token && data.user)}
+        <FooterLink href="/logout">Logout</FooterLink>
+        <FooterLink href="/account">Logged in as {data.user.username}</FooterLink>
+      {:else}
+        <FooterLink href="/login">Log in</FooterLink>
+      {/if}
+      <FooterLink href="/about">About
+        <Fa icon={faInfoCircle} class="ml-3 inline" />
+      </FooterLink>
     </FooterLinkGroup>
   </Footer>
 </div>

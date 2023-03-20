@@ -13,17 +13,17 @@
   import { browser } from "$app/environment";
   import { goto } from "$app/navigation";
   import Fa from "svelte-fa";
-	import { faChevronLeft, faChevronRight, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+  import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+  import type IUserResponse from "../../types/IUserResponse";
 
   interface PD extends PageData {
+    user?: IUserResponse;
     game?: string;
     player?: string;
   }
 
   interface AD extends ActionData {
     success: boolean;
-    game?: string;
-    player?: string;
     message?: string;
   }
 
@@ -58,24 +58,35 @@
   <div class="hidden md:block"><!-- Placeholder --></div>
   <Card size="none" class="mx-3">
     <Heading tag="h2" class="text-center mb-2">Join a Game</Heading>
-    <form on:submit={() => (loading = true)} method="POST">
+    <form on:submit={() => (loading = true)} method="POST" action="?/guest">
       <div class="mb-1">
         <Input type="text" id="code" name="code" placeholder="Code" required />
       </div>
       <div class="mb-1">
         <Input type="text" id="password" name="password" placeholder="Password" required />
       </div>
-      <div class="mb-3">
-        <Input type="text" id="username" name="username" placeholder="Username" required />
-      </div>
-      <Button class="w-full mb-3" type="submit">
-        {#if loading}
-          <Spinner size="5" color="white" />
-        {:else}
-          Join Game
-          <Fa icon={faChevronRight} class="ml-3" />
-        {/if}
-      </Button>
+      {#if (data?.user)}
+        <Button class="w-full mb-3" type="submit" formaction="?/authed">
+          {#if loading}
+            <Spinner size="5" color="white" />
+          {:else}
+            Join Game
+            <Fa icon={faChevronRight} class="ml-3" />
+          {/if}
+        </Button>
+      {:else }
+        <div class="mb-3">
+          <Input type="text" id="username" name="username" placeholder="Username" required />
+        </div>
+        <Button class="w-full mb-3" type="submit">
+          {#if loading}
+            <Spinner size="5" color="white" />
+          {:else}
+            Join Game
+            <Fa icon={faChevronRight} class="ml-3" />
+          {/if}
+        </Button>
+      {/if}
       <Button class="w-full" outline href="/">
         <Fa icon={faChevronLeft} class="mr-3" />
         Back
