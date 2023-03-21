@@ -65,16 +65,13 @@ export const actions = {
           cookies.set("user", JSON.stringify(data));
 
           return { success: true, message: "success" };
-        } catch ({ message }) {
-          console.log(message);
+        } catch (e) {
           return { success: false, message: response.statusText };
         }
-      } catch ({ message }) {
-        console.log(message);
+      } catch (e) {
         return { success: false, message: "The server is down." };
       }
-    } catch ({ message }) {
-      console.log(message);
+    } catch (e) {
       return { success: false, message: "You messed with the cookies." };
     }
   }

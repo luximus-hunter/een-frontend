@@ -68,10 +68,9 @@ export const actions = {
       } catch (e) {
         return { success: false, message: response.statusText };
       }
-    } catch ({ message }) {
+    } catch (e) {
       cookies.delete("playerId");
       cookies.delete("gameId");
-      console.log(message);
       return { success: false, message: "The server is down." };
     }
   },
@@ -118,10 +117,9 @@ export const actions = {
       } catch (e) {
         return { success: false, message: response.statusText };
       }
-    } catch ({ message }) {
+    } catch (e) {
       cookies.delete("playerId");
       cookies.delete("gameId");
-      console.log(message);
       return { success: false, message: "The server is down." };
     }
   }

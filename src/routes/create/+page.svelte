@@ -38,8 +38,6 @@
 
   let players = 4;
   let loading = false;
-
-  console.log({ data });
 </script>
 
 <svelte:head>

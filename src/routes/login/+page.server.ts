@@ -53,10 +53,9 @@ export const actions = {
         cookies.delete("token");
         return { success: false, message: response.statusText };
       }
-    } catch ({ message }) {
+    } catch (e) {
       cookies.delete("user");
       cookies.delete("token");
-      console.log(message);
       return { success: false, message: "The server is down." };
     }
   }

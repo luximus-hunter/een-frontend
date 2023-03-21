@@ -23,8 +23,6 @@
 
   export let form: AD | null;
 
-  console.log(form);
-
   if (browser && form?.success) {
     goto(`/account`);
   }
