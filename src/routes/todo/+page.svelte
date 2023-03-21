@@ -39,6 +39,7 @@
     { done: true, task: "More icons" },
     { done: true, task: "User api routes" },
     { done: false, task: "Register page" },
+    { done: false, task: "User creation validation" },
     { done: true, task: "Login page" },
     { done: true, task: "Create & Join for users" },
     { done: true, task: "Account page" },

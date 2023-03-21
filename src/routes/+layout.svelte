@@ -53,12 +53,12 @@
     <FooterLinkGroup
       ulClass="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0"
     >
-      {#if (data.token && data.user)}
-        <FooterLink href="/logout">Logout</FooterLink>
-        <FooterLink href="/account">Logged in as {data.user.username}</FooterLink>
-      {:else}
-        <FooterLink href="/login">Log in</FooterLink>
-      {/if}
+        {#if (data.token && data.user)}
+          <FooterLink href="/logout">Logout</FooterLink>
+          <FooterLink href="/account">Logged in as {data.user.username}</FooterLink>
+        {:else}
+          <FooterLink href="/login">Log in</FooterLink>
+        {/if}
       <FooterLink href="/about">About
         <Fa icon={faInfoCircle} class="ml-3 inline" />
       </FooterLink>
