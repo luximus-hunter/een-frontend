@@ -8,37 +8,32 @@
     BreadcrumbItem,
     Spinner
   } from "flowbite-svelte";
-  import type { ActionData, PageData } from "./$types";
+  import type { ActionData } from "./$types";
   import Message from "../../../components/Message.svelte";
   import { browser } from "$app/environment";
   import { goto } from "$app/navigation";
   import Fa from "svelte-fa";
-  import { faChevronLeft, faChevronRight, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+  import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
-  interface PD extends PageData {
-    game?: string;
-    player?: string;
-  }
 
   interface AD extends ActionData {
     success: boolean;
-    game?: string;
-    player?: string;
     message?: string;
   }
 
-  export let data: PD;
   export let form: AD | null;
 
-  if (browser && data?.game) {
-    goto(`/game/${data?.game}`);
+  console.log(form);
+
+  if (browser && form?.success) {
+    goto(`/account`);
   }
 
   let loading = false;
 </script>
 
 <svelte:head>
-  <title>EEN - Join</title>
+  <title>EEN - Edit Account</title>
 </svelte:head>
 
 {#if form?.success === false}

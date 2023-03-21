@@ -41,15 +41,15 @@
       <div class="space-y-1 font-medium dark:text-white w-full">
         <Heading tag="h2">{data.user?.username}</Heading>
         <div class="text-sm text-gray-500 dark:text-gray-400">{data.user?.wins} Wins, {data.user?.loses} Loses</div>
-        <div class="grid gap-3 grid-cols-2">
+        <div class="grid gap-3">
           <Button class="w-full" href="/account/edit" outline>
             Edit picture
             <Fa icon={faPen} class="ml-3" />
           </Button>
-          <Button class="w-full" href="/" color="red" outline>
-            Delete Account
-            <Fa icon={faTrashCan} class="ml-3" />
-          </Button>
+<!--          <Button class="w-full" href="/" color="red" outline>-->
+<!--            Delete Account-->
+<!--            <Fa icon={faTrashCan} class="ml-3" />-->
+<!--          </Button>-->
         </div>
       </div>
     </div>

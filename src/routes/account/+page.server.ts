@@ -1,6 +1,5 @@
 import type { PageServerLoad } from "./$types";
 import type IUserResponse from "../../types/IUserResponse";
-import type ILoginResponse from "../../types/ILoginResponse";
 import type IFetchFail from "../../types/IFetchFail";
 
 export const load = (async ({ cookies, fetch }) => {
@@ -12,7 +11,7 @@ export const load = (async ({ cookies, fetch }) => {
   }
 
   try {
-    let user: IUserResponse = JSON.parse(userString || "");
+    const user: IUserResponse = JSON.parse(userString || "");
 
     try {
       const response = await fetch(
@@ -59,10 +58,6 @@ export const load = (async ({ cookies, fetch }) => {
       console.log(message);
       return { success: false, message: "The server is down." };
     }
-
-    return {
-      user
-    };
   } catch (err) {
     return;
   }
