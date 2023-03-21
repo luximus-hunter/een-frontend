@@ -1,6 +1,6 @@
-import type { PageServerLoad } from './$types';
+import type { PageServerLoad } from "./$types";
 
 export const load = (({ cookies }) => {
-	cookies.delete('playerId');
-	cookies.delete('gameId');
+  cookies.delete("playerId", { path: "/" });
+  cookies.delete("gameId", { path: "/" });
 }) satisfies PageServerLoad;

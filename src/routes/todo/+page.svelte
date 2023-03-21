@@ -43,7 +43,7 @@
     { done: true, task: "Create & Join for users" },
     { done: true, task: "Account page" },
     { done: true, task: "Edit profile image as user" },
-    { done: true, task: "Logout" },
+    { done: false, task: "Logout" },
     { done: false, task: "User creation validation" },
     { done: false, task: "Delete account" },
     { done: false, task: "TO & FO" },

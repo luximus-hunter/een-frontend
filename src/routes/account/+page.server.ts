@@ -27,8 +27,8 @@ export const load = (async ({ cookies, fetch }) => {
       );
 
       if (response.status === 400) {
-        cookies.delete("user");
-        cookies.delete("token");
+        cookies.delete("user", {path: "/"});
+        cookies.delete("token", {path: "/"});
         return { success: false, message: "Invalid request send to server." };
       }
 
@@ -37,24 +37,24 @@ export const load = (async ({ cookies, fetch }) => {
         let data: IUserResponse | IFetchFail = d as IFetchFail;
 
         if (data?.message) {
-          cookies.delete("user");
-          cookies.delete("token");
+          cookies.delete("user", {path: "/"});
+          cookies.delete("token", {path: "/"});
           return { success: false, message: data.message };
         }
 
         data = d as IUserResponse;
 
-        cookies.set("user", JSON.stringify(data));
+        cookies.set("user", JSON.stringify(data), {path: "/"});
 
         return { success: true, message: "success", user: data };
       } catch (e) {
-        cookies.delete("user");
-        cookies.delete("token");
+        cookies.delete("user", {path: "/"});
+        cookies.delete("token", {path: "/"});
         return { success: false, message: response.statusText };
       }
     } catch (e) {
-      cookies.delete("user");
-      cookies.delete("token");
+      cookies.delete("user", {path: "/"});
+      cookies.delete("token", {path: "/"});
       return { success: false, message: "The server is down." };
     }
   } catch (err) {

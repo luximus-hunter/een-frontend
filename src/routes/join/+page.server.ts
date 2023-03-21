@@ -44,8 +44,8 @@ export const actions = {
       );
 
       if (response.status === 400) {
-        cookies.delete("playerId");
-        cookies.delete("gameId");
+        cookies.delete("playerId", {path: "/"});
+        cookies.delete("gameId", {path: "/"});
         return { success: false, message: "Invalid request send to server." };
       }
 
@@ -54,23 +54,23 @@ export const actions = {
         let data: IPlayerResponse | IFetchFail = d as IFetchFail;
 
         if (data?.message) {
-          cookies.delete("playerId");
-          cookies.delete("gameId");
+          cookies.delete("playerId", {path: "/"});
+          cookies.delete("gameId", {path: "/"});
           return { success: false, message: data.message };
         }
 
         data = d as IPlayerResponse;
 
-        cookies.set("playerId", data.id);
-        cookies.set("gameId", code);
+        cookies.set("playerId", data.id, {path: "/"});
+        cookies.set("gameId", code, {path: "/"});
 
         return { success: true, message: "success" };
       } catch (e) {
         return { success: false, message: response.statusText };
       }
     } catch (e) {
-      cookies.delete("playerId");
-      cookies.delete("gameId");
+      cookies.delete("playerId", {path: "/"});
+      cookies.delete("gameId", {path: "/"});
       return { success: false, message: "The server is down." };
     }
   },
@@ -93,8 +93,8 @@ export const actions = {
       );
 
       if (response.status === 400) {
-        cookies.delete("playerId");
-        cookies.delete("gameId");
+        cookies.delete("playerId", {path: "/"});
+        cookies.delete("gameId", {path: "/"});
         return { success: false, message: "Invalid request send to server." };
       }
 
@@ -103,23 +103,23 @@ export const actions = {
         let data: IPlayerResponse | IFetchFail = d as IFetchFail;
 
         if (data?.message) {
-          cookies.delete("playerId");
-          cookies.delete("gameId");
+          cookies.delete("playerId", {path: "/"});
+          cookies.delete("gameId", {path: "/"});
           return { success: false, message: data.message };
         }
 
         data = d as IPlayerResponse;
 
-        cookies.set("playerId", data.id);
-        cookies.set("gameId", code);
+        cookies.set("playerId", data.id, {path: "/"});
+        cookies.set("gameId", code, {path: "/"});
 
         return { success: true, message: "success" };
       } catch (e) {
         return { success: false, message: response.statusText };
       }
     } catch (e) {
-      cookies.delete("playerId");
-      cookies.delete("gameId");
+      cookies.delete("playerId", {path: "/"});
+      cookies.delete("gameId", {path: "/"});
       return { success: false, message: "The server is down." };
     }
   }

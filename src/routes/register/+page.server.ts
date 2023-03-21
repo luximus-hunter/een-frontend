@@ -20,16 +20,16 @@ export const actions = {
       );
 
       if (response.status === 400) {
-        cookies.delete("user");
-        cookies.delete("token");
+        cookies.delete("user", {path: "/"});
+        cookies.delete("token", {path: "/"});
         return { success: false, message: "Invalid request send to server." };
       }
 
       try {
         const data: IFetchFail = await response.json();
 
-        cookies.delete("user");
-        cookies.delete("token");
+        cookies.delete("user", {path: "/"});
+        cookies.delete("token", {path: "/"});
 
         return { success: false, message: data.message };
       } catch (e) {
@@ -37,13 +37,13 @@ export const actions = {
           return { success: true, message: "Registered user." };
         }
 
-        cookies.delete("user");
-        cookies.delete("token");
+        cookies.delete("user", {path: "/"});
+        cookies.delete("token", {path: "/"});
         return { success: false, message: response.statusText };
       }
     } catch (e) {
-      cookies.delete("user");
-      cookies.delete("token");
+      cookies.delete("user", {path: "/"});
+      cookies.delete("token", {path: "/"});
       return { success: false, message: "The server is down." };
     }
   }

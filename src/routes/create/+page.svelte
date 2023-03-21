@@ -102,7 +102,7 @@
           {/if}
         </Button>
       {:else}
-        <div className="mb-3">
+        <div class="mb-3">
           <Input type="text" id="username" name="username" placeholder="Username" required />
         </div>
         <Button class="w-full mb-3" type="submit">
